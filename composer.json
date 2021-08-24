@@ -27,8 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Lioneagle\\LeUtils\\": "src",
-            "Lioneagle\\LeUtils\\Database\\Factories\\": "database/factories"
+            "Lioneagle\\LeUtils\\": "src"
         }
     },
     "autoload-dev": {
