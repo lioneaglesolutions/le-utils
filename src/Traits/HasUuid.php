@@ -2,7 +2,10 @@
 
 namespace Lioneagle\LeUtils\Traits;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Lioneagle\LeUtils\Contracts\UuidBuilderInterface;
+use Lioneagle\LeUtils\Query\Builder;
 
 /**
  * @property string $uuid;
@@ -12,22 +15,25 @@ trait HasUuid
     /**
      * Add UUID to model upon creation.
      */
-    public static function bootHasUuid()
+    public static function bootHasUuid(): void
     {
-        static::creating(function ($model) {
+        static::creating(function (Model $model) {
             $model->uuid = Str::orderedUuid()->toString();
         });
     }
 
-    public static function uuid(string $uuid): ?static
+    /**
+     * @param \Illuminate\Database\Query\Builder $query
+     */
+    public function newEloquentBuilder($query): UuidBuilderInterface
     {
-        return self::where('uuid', $uuid)->first();
+        return new Builder($query);
     }
 
     /**
      * Add 'id' to the $hidden attributes.
      */
-    public function initializeHasUuid()
+    public function initializeHasUuid(): void
     {
         $this->hidden[] = 'id';
     }
