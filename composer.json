@@ -43,16 +43,6 @@
     "config": {
         "sort-packages": true
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Lioneagle\\LeUtils\\LeUtilsServiceProvider"
-            ],
-            "aliases": {
-                "LeUtils": "Lioneagle\\LeUtils\\LeUtilsFacade"
-            }
-        }
-    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
