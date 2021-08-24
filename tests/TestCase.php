@@ -2,10 +2,8 @@
 
 namespace Lioneagle\LeUtils\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Application;
-use Lioneagle\LeUtils\LeUtilsServiceProvider;
 use Lioneagle\LeUtils\Tests\Models\Post;
 use Lioneagle\LeUtils\Tests\Models\User;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -21,22 +19,11 @@ class TestCase extends Orchestra
         parent::setUp();
 
         $this->setUpDatabase($this->app);
-
-        // Factory::guessFactoryNamesUsing(
-        //     fn (string $modelName) => 'VendorName\\Skeleton\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
-        // );
     }
 
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
-    }
-
-    protected function getPackageProviders($app)
-    {
-        return [
-            LeUtilsServiceProvider::class,
-        ];
     }
 
     protected function setUpDatabase(Application $app): void

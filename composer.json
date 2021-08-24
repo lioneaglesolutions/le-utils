@@ -10,7 +10,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "James Mooring",
+            "name": "James",
             "email": "james@lioneagle.solutions",
             "role": "Developer"
         }
@@ -27,8 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Lioneagle\\LeUtils\\": "src",
-            "Lioneagle\\LeUtils\\Database\\Factories\\": "database/factories"
+            "Lioneagle\\LeUtils\\": "src"
         }
     },
     "autoload-dev": {
@@ -37,21 +36,10 @@
         }
     },
     "scripts": {
-        "test": "./vendor/bin/testbench package:test --parallel --no-coverage",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+        "test": "vendor/bin/phpunit"
     },
     "config": {
         "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Lioneagle\\LeUtils\\LeUtilsServiceProvider"
-            ],
-            "aliases": {
-                "LeUtils": "Lioneagle\\LeUtils\\LeUtilsFacade"
-            }
-        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
