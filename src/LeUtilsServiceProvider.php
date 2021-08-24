@@ -13,7 +13,6 @@ class LeUtilsServiceProvider extends ServiceProvider
         //         __DIR__ . '/../config/le-utils.php' => config_path('le-utils.php'),
         //     ], 'le-utils-config');
         // }
-        info('we made it');
     }
 
     // public function register()
