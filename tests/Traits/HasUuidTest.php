@@ -2,6 +2,7 @@
 
 namespace Lioneagle\LeUtils\Tests\Traits;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Lioneagle\LeUtils\Tests\Models\Post;
 use Lioneagle\LeUtils\Tests\Models\User;
 use Lioneagle\LeUtils\Tests\TestCase;
@@ -65,5 +66,14 @@ class HasUuidTest extends TestCase
 
         $this->assertInstanceOf(Post::class, $queried);
         $this->assertEquals($post->uuid, $queried->uuid);
+    }
+
+    /**
+     * @test
+     */
+    public function it_throws_exception_if_model_not_found()
+    {
+        $this->expectException(ModelNotFoundException::class);
+        User::uuidOrFail('not_a_uuid');
     }
 }
