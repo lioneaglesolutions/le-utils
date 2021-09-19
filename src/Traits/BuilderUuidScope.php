@@ -15,9 +15,7 @@ trait BuilderUuidScope
     }
 
     /**
-     * @param string $uuid
-     *
-     * @return \Illuminate\Database\Eloquent\ModelNotFoundException
+     * @param mixed $uuid
      */
     public function uuidOrFail($uuid): ?Model
     {
