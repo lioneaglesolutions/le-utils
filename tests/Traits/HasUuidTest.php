@@ -13,6 +13,12 @@ use Lioneagle\LeUtils\Tests\TestCase;
  */
 class HasUuidTest extends TestCase
 {
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->createUsers();
+    }
+
     /**
      * @test
      */

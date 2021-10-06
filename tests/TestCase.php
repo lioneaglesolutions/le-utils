@@ -29,7 +29,6 @@ class TestCase extends Orchestra
     protected function setUpDatabase(Application $app): void
     {
         $this->createDatabaseTables($app);
-        $this->createUsers();
     }
 
     protected function createDatabaseTables(Application $app): void
@@ -43,9 +42,10 @@ class TestCase extends Orchestra
 
         $app['db']->connection()->getSchemaBuilder()->create('posts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable();
             $table->uuid('uuid')->unique();
             $table->string('name');
+            $table->dateTime('date')->nullable();
             $table->timestamps();
         });
     }
