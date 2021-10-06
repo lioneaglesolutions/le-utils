@@ -15,7 +15,7 @@ trait BuilderUuidScope
     }
 
     /**
-     * @param mixed $uuid
+     * @param string $uuid
      */
     public function uuidOrFail($uuid): ?Model
     {

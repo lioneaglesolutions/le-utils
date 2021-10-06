@@ -25,7 +25,7 @@ trait HasUuid
     /**
      * @param \Illuminate\Database\Query\Builder $query
      *
-     * @return \Lioneagle\LeUtils\Query\Builder<self>
+     * @return \Lioneagle\LeUtils\Contracts\UuidBuilderInterface<static>
      */
     public function newEloquentBuilder($query): UuidBuilderInterface
     {
