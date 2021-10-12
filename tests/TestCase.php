@@ -36,6 +36,7 @@ class TestCase extends Orchestra
         $app['db']->connection()->getSchemaBuilder()->create('users', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
+            $table->string('password')->nullable();
             $table->string('name');
             $table->timestamps();
         });
