@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Commands;
+namespace Lioneagle\LeUtils\Commands;
 
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
