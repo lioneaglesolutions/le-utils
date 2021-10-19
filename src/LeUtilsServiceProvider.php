@@ -2,8 +2,8 @@
 
 namespace Lioneagle\LeUtils;
 
-use App\Commands\IdeHelperCommand;
 use Illuminate\Support\ServiceProvider;
+use Lioneagle\LeUtils\Commands\IdeHelperCommand;
 
 class LeUtilsServiceProvider extends ServiceProvider
 {
