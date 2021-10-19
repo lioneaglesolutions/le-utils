@@ -4,6 +4,7 @@ namespace Lioneagle\LeUtils\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Application;
+use Lioneagle\LeUtils\LeUtilsServiceProvider;
 use Lioneagle\LeUtils\Tests\Models\Post;
 use Lioneagle\LeUtils\Tests\Models\User;
 use Orchestra\Testbench\TestCase as Orchestra;

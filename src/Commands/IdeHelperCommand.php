@@ -71,6 +71,7 @@ class IdeHelperCommand extends Command
     {
         $models = $this->getModels();
         $modelNames = $models->pluck('model_name')->all();
+
         $choice = $this->choice('Select Models to generate docs for', $modelNames, null, null, true);
 
         $selectedModels = $models->whereIn('model_name', $choice)->pluck('model')->all();
