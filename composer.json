@@ -36,6 +36,13 @@
             "Lioneagle\\LeUtils\\Tests\\": "tests"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Lioneagle\\LeUtils\\LeUtilsServiceProvider"
+            ]
+        }
+    },
     "scripts": {
         "test": "vendor/bin/phpunit"
     },
