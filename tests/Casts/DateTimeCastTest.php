@@ -69,6 +69,20 @@ class DateTimeCastTest extends TestCase
         $this->assertEquals(config('app.timezone'), $post->date->getTimezone());
     }
 
+    /**
+     * @test
+     */
+    public function it_returns_null_if_date_is_null()
+    {
+        $post = $this->createPost([
+            'name' => 'Foo Bar - Carbon',
+            'date' => null,
+        ]);
+
+        $this->assertNotInstanceOf(Carbon::class, $post->date);
+        $this->assertNull($post->date);
+    }
+
     protected function createPost(array $attributes = [])
     {
         $attrs = array_merge([

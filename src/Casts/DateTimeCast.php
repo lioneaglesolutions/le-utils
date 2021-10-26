@@ -13,9 +13,9 @@ class DateTimeCast implements CastsAttributes
      *
      * @throws \Carbon\Exceptions\InvalidFormatException
      */
-    public function get($model, string $key, $value, array $attributes): Carbon
+    public function get($model, string $key, $value, array $attributes): ?Carbon
     {
-        return Carbon::parse($value);
+        return $value ? Carbon::parse($value) : null;
     }
 
     /**

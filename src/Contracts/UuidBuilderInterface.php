@@ -12,12 +12,12 @@ interface UuidBuilderInterface
     /**
      * @return null|TModelClass
      */
-    public function uuid(string $uuid): ?Model;
+    public function uuid(string $uuid);
 
     /**
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      *
      * @return TModelClass
      */
-    public function uuidOrFail(string $uuid): ?Model;
+    public function uuidOrFail(string $uuid);
 }
