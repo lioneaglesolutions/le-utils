@@ -20,6 +20,7 @@
         "laravel/framework": "^8.55"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.10",
         "brianium/paratest": "^6.3",
         "nunomaduro/collision": "^5.3",
         "orchestra/testbench": "^6.15",
@@ -34,6 +35,13 @@
     "autoload-dev": {
         "psr-4": {
             "Lioneagle\\LeUtils\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Lioneagle\\LeUtils\\LeUtilsServiceProvider"
+            ]
         }
     },
     "scripts": {

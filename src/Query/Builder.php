@@ -7,8 +7,8 @@ use Lioneagle\LeUtils\Contracts\UuidBuilderInterface;
 use Lioneagle\LeUtils\Traits\BuilderUuidScope;
 
 /**
- * @phpstan-template TModelClass of \Illuminate\Database\Eloquent\Model
- * @phpstan-extends Builder<TModelClass>
+ * @template TModelClass of \Illuminate\Database\Eloquent\Model
+ * @extends EloquentBuilder<TModelClass>
  */
 class Builder extends EloquentBuilder implements UuidBuilderInterface
 {

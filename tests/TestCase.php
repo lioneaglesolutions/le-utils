@@ -4,6 +4,7 @@ namespace Lioneagle\LeUtils\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Application;
+use Lioneagle\LeUtils\LeUtilsServiceProvider;
 use Lioneagle\LeUtils\Tests\Models\Post;
 use Lioneagle\LeUtils\Tests\Models\User;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -29,7 +30,6 @@ class TestCase extends Orchestra
     protected function setUpDatabase(Application $app): void
     {
         $this->createDatabaseTables($app);
-        $this->createUsers();
     }
 
     protected function createDatabaseTables(Application $app): void
@@ -37,15 +37,17 @@ class TestCase extends Orchestra
         $app['db']->connection()->getSchemaBuilder()->create('users', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
+            $table->string('password')->nullable();
             $table->string('name');
             $table->timestamps();
         });
 
         $app['db']->connection()->getSchemaBuilder()->create('posts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable();
             $table->uuid('uuid')->unique();
             $table->string('name');
+            $table->dateTime('date')->nullable();
             $table->timestamps();
         });
     }
