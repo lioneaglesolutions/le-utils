@@ -11,6 +11,6 @@ trait SpiesOnActions
 {
     public function spyOnAction(string $action): ActionSpy
     {
-        return new ActionSpy($this->spy($action)->makePartial());
+        return new ActionSpy($this->spy($action));
     }
 }
