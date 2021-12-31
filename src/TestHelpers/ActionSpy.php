@@ -14,7 +14,7 @@ class ActionSpy
 {
     private bool $assertExecuted;
 
-    private array $args;
+    private array $args = [];
 
     private string $methodName = 'execute';
 
