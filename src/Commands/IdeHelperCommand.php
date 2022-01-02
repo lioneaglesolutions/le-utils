@@ -2,9 +2,9 @@
 
 namespace Lioneagle\LeUtils\Commands;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Str;
 use Symfony\Component\Finder\Finder;
 
 class IdeHelperCommand extends Command
@@ -15,7 +15,7 @@ class IdeHelperCommand extends Command
      * @var string
      */
     protected $signature = 'le:ide {--M|models} {--I|interactive} {--F|facades}';
-    
+
     /**
      * The console command description.
      *
@@ -40,6 +40,13 @@ class IdeHelperCommand extends Command
      */
     public function handle()
     {
+        if (collect($this->options())->isEmpty()) {
+            $this->generateModelDocs();
+            $this->generateFacadeDocs();
+
+            return 0;
+        }
+
         if ($this->option('models')) {
             $this->generateModelDocs();
         }
