@@ -26,7 +26,11 @@ class DateTimeCast implements CastsAttributes
      */
     public function set($model, string $key, $value, array $attributes): Carbon
     {
-        if (!$value instanceof Carbon) {
+        if ($value === null) {
+            return null;
+        }
+        
+        if (is_string($value)) {
             $value = Carbon::parse($value);
         }
 
