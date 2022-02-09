@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "laravel/framework": "^8.55"
+        "laravel/framework": "^8.0|^9.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.10",
@@ -25,7 +25,6 @@
         "nunomaduro/collision": "^5.3",
         "orchestra/testbench": "^6.15",
         "phpunit/phpunit": "^9.3",
-        "barryvdh/laravel-ide-helper": "^2.10"
     },
     "autoload": {
         "psr-4": {
