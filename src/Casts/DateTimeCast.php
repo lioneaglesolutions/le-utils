@@ -24,7 +24,7 @@ class DateTimeCast implements CastsAttributes
      *
      * @throws \Carbon\Exceptions\InvalidFormatException
      */
-    public function set($model, string $key, $value, array $attributes): Carbon
+    public function set($model, string $key, $value, array $attributes): ?Carbon
     {
         if ($value === null) {
             return null;
