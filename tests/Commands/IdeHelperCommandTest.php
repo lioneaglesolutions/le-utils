@@ -29,6 +29,21 @@ class IdeHelperCommandTest extends TestCase
     /**
      * @test
      */
+    public function it_calls_the_models_and_facades_when_no_options_supplied()
+    {
+        $this->mock(IdeHelperCommand::class . "[call]", function (MockInterface $mock) {
+            $this->app[Kernel::class]->registerCommand($mock);
+
+            $mock->shouldReceive('call')->withArgs(['ide-helper:models', ['--write' => true]])->once();
+            $mock->shouldReceive('call')->withArgs(['ide-helper:generate'])->once();
+        });
+
+        $this->artisan('le:ide');
+    }
+
+    /**
+     * @test
+     */
     public function it_calls_the_models_command()
     {
         $this->mock(IdeHelperCommand::class . "[call]", function (MockInterface $mock) {
@@ -47,7 +62,7 @@ class IdeHelperCommandTest extends TestCase
     {
         $this->mock(IdeHelperCommand::class . "[getModels,call,choice]", function (MockInterface $mock) {
             $mock->shouldAllowMockingProtectedMethods();
-            
+
             $this->app[Kernel::class]->registerCommand($mock);
 
             $mock->shouldReceive('getModels')->andReturn(

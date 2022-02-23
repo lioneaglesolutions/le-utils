@@ -40,7 +40,7 @@ class IdeHelperCommand extends Command
      */
     public function handle()
     {
-        if (collect($this->options())->isEmpty()) {
+        if ($this->hasNoOptions()) {
             $this->generateModelDocs();
             $this->generateFacadeDocs();
 
@@ -57,6 +57,27 @@ class IdeHelperCommand extends Command
 
         return 0;
     }
+
+    protected function models()
+    {
+        return $this->option('models');
+    }
+
+    protected function interactive()
+    {
+        return $this->option('interactive');
+    }
+
+    protected function facades()
+    {
+        return $this->option('facades');
+    }
+
+    protected function hasNoOptions()
+    {
+        return !$this->models() && !$this->interactive() && !$this->facades();
+    }
+
 
     protected function generateFacadeDocs()
     {
